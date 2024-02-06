@@ -1,6 +1,6 @@
 {
   "name": "coqui-node",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "./lib/src/index.js",
   "types": "./lib/src/index.d.ts",
   "license": "MIT",
