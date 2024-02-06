@@ -9,6 +9,7 @@ export interface TTSOptions {
     model_name?: TTSModel;
     vocoder_name?: VocoderModel;
     speaker_idx?: string;
+    use_cuda?: boolean;
 }
 
 export async function tts(options: TTSOptions) {
@@ -18,6 +19,7 @@ export async function tts(options: TTSOptions) {
         options.model_name ? `--model_name "${Object.keys(TTSModel)[Object.values(TTSModel).indexOf(options.model_name)]}"` : undefined,
         options.speaker_idx ? `--speaker_idx ${options.speaker_idx}` : undefined,
         options.vocoder_name ? `--vocoder_name "${options.vocoder_name}"` : undefined,
+        options.use_cuda ? `--use_cuda ${options.use_cuda}` : `--use_cuda true`,
        
     ];
 
