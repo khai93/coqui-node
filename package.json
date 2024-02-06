@@ -1,6 +1,6 @@
 {
   "name": "coqui-node",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "main": "./lib/src/index.js",
   "types": "./lib/src/index.d.ts",
   "license": "MIT",
@@ -14,6 +14,6 @@
   }, 
   "scripts": {
     "build": "tsc",
-    "publish": "yarn build && npm publish"
+    "pub": "yarn build && npm publish"
   }
 }

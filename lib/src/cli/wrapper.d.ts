@@ -5,5 +5,6 @@ export interface TTSOptions {
     model_name?: TTSModel;
     vocoder_name?: VocoderModel;
     speaker_idx?: string;
+    use_cuda?: boolean;
 }
 export declare function tts(options: TTSOptions): Promise<string>;
