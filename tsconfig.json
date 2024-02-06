@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+      "noImplicitAny": true,
+      "removeComments": true,
+      "moduleResolution": "nodenext",
+      "types": ["node"],
+      "sourceMap": true,
+      "esModuleInterop": true,
+      "resolveJsonModule": true
+    },
+    "include": ["src/**/*", "assets/**/*", "examples/**/*"],
+    "exclude": ["**/*.spec.ts"]
+  }
