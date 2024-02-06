@@ -6,6 +6,7 @@
       "target": "ES5",
       "moduleResolution": "nodenext",
       "types": ["node"],
+      "lib": ["es2015", "es2021", "dom"],
       "sourceMap": true,
       "outDir": "lib",
       "skipLibCheck": true,

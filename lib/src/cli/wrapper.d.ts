@@ -7,4 +7,4 @@ export interface TTSOptions {
     speaker_idx?: string;
     use_cuda?: boolean;
 }
-export declare function tts(options: TTSOptions): Promise<string>;
+export declare function tts(options: TTSOptions): Promise<ReadableStream<Uint8Array>>;

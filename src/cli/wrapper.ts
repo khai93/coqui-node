@@ -13,23 +13,13 @@ export interface TTSOptions {
 }
 
 export async function tts(options: TTSOptions) {
-    const params = [
-        `--text "${options.text}"`,
-        `--out_path "${options.out_path}"`,
-        options.model_name ? `--model_name "${Object.keys(TTSModel)[Object.values(TTSModel).indexOf(options.model_name)]}"` : undefined,
-        options.speaker_idx ? `--speaker_idx ${options.speaker_idx}` : undefined,
-        options.vocoder_name ? `--vocoder_name "${options.vocoder_name}"` : undefined,
-        options.use_cuda ? `--use_cuda ${options.use_cuda}` : `--use_cuda true`,
-       
-    ];
+    const formatted = options.text
+            .replaceAll(/"|'/g, "") // remove quotes
+            .replaceAll(/\r?\n|\r/g, " ") // remove new lines
+    
+    const urlParams = new URLSearchParams();
+    urlParams.append('text', formatted);
+    urlParams.append('speaker_id', options.speaker_idx);
 
-    console.debug(params);
-
-    const { stdout, stderr } = await exec(`tts ${params.join(" ")}`);
-    console.log(stderr)
-    if (stderr) {
-        throw Promise.reject(stderr);
-    }
-
-    return stdout;
+    return (await fetch('http://localhost:5002/api/tts?' + urlParams.toString())).body
 }
